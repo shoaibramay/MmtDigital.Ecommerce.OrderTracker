@@ -1,13 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MmtDigital.Ecommerce.Entities;
 using MmtDigital.Ecommerce.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using MmtDigital.Ecommerce.Data;
-using AutoMapper;
 
 namespace MmtDigital.Ecommerce.OrderTracker.Controllers
 {
@@ -18,12 +15,14 @@ namespace MmtDigital.Ecommerce.OrderTracker.Controllers
         private readonly ICustomerInformationService _customerInformationService;
         private readonly IOrderService _orderService;
         private readonly IMapper _mapper;
+        private readonly ILogger _logger;
 
-        public OrderTrackerController(ICustomerInformationService customerInformationService, IOrderService orderService, IMapper mapper)
+        public OrderTrackerController(ICustomerInformationService customerInformationService, IOrderService orderService, IMapper mapper, ILogger<OrderTrackerController> logger)
         {
             _customerInformationService = customerInformationService;
             _orderService = orderService;
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -43,25 +42,41 @@ namespace MmtDigital.Ecommerce.OrderTracker.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(CustomerPostRequestModel model)
         {
-
-            Customer customer = await _customerInformationService.GetCustomerInformationAsync(model.User);
-
-            if (customer == null)
+            try
             {
-                return NotFound();
+                Customer customer = await _customerInformationService.GetCustomerInformationAsync(model.User);
+
+                if (customer == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+
+                    OrderTrackerViewModel tracker = new OrderTrackerViewModel();
+                    tracker.Customer = customer;
+
+                    //try to get order if any
+                    Order latestOrder = _orderService.GetLatestOrderByCustomerId(customer.CustomerId);
+                    tracker.Order = _mapper.Map<OrderViewModel>(latestOrder);
+
+                    if (latestOrder.ContainsGift == true)
+                    {
+                        tracker.Order.OrderItems.ForEach(n => { n.Product = "Gift"; });
+                    }
+
+                    return Ok(tracker);
+                }
             }
-            else
+            catch (Exception ex)
             {
-
-                OrderTrackerViewModel tracker = new OrderTrackerViewModel();
-                tracker.Customer = customer;
-
-                //try to get order if any
-                Order latestOrder = _orderService.GetLatestOrderByCustomerId(customer.CustomerId);
-                _mapper.Map(latestOrder, tracker.Order);
-
-                return Ok(tracker);
+                _logger.LogInformation(ex.Message);
+                return BadRequest(ex.Message);
             }
+
+
+
+
 
 
         }

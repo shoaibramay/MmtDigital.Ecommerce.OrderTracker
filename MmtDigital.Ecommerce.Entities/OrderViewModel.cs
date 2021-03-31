@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace MmtDigital.Ecommerce.Entities
 {
@@ -18,13 +15,13 @@ namespace MmtDigital.Ecommerce.Entities
         public string DeliveryAddress { get; set; }
 
         [JsonPropertyName("orderItems")]
-        public List<OrderItemsViewModel> OrderItems { get; set; }
+        public List<OrderItemViewModel> OrderItems { get; set; }
 
         [JsonPropertyName("deliveryExpected")]
         public string DeliveryExpected { get; set; }
     }
 
-    public class OrderItemsViewModel
+    public class OrderItemViewModel
     {
         [JsonPropertyName("product")]
         public string Product { get; set; }

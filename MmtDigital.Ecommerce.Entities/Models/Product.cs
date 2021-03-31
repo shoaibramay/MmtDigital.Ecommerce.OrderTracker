@@ -9,17 +9,17 @@ namespace MmtDigital.Ecommerce.Entities
     {
         public Product()
         {
-            Orderitems = new HashSet<Orderitem>();
+            OrderItems = new HashSet<OrderItem>();
         }
 
-        public int Productid { get; set; }
-        public string Productname { get; set; }
-        public decimal? Packheight { get; set; }
-        public decimal? Packwidth { get; set; }
-        public decimal? Packweight { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public decimal? PackHeight { get; set; }
+        public decimal? PackWidth { get; set; }
+        public decimal? PackWeight { get; set; }
         public string Colour { get; set; }
         public string Size { get; set; }
 
-        public virtual ICollection<Orderitem> Orderitems { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

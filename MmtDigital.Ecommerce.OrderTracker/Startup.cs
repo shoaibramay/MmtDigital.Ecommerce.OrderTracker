@@ -1,19 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using MmtDigital.Ecommerce.Services;
 using MmtDigital.Ecommerce.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MmtDigital.Ecommerce.Services;
 using System.Net;
-using AutoMapper;
 
 namespace MmtDigital.Ecommerce.OrderTracker
 {
@@ -35,7 +27,6 @@ namespace MmtDigital.Ecommerce.OrderTracker
             services.AddTransient<IApplicationContext, ApplicationContext>();
             services.AddTransient<ICustomerInformationService, CustomerInformationService>();
             services.AddTransient<IOrderService, OrderService>();
-
             services.AddAutoMapper(typeof(Startup));
         }
 

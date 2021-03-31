@@ -9,7 +9,7 @@ namespace MmtDigital.Ecommerce.Data
     public interface IApplicationContext
     {
         DbSet<Order> Orders { get; set; }
-        DbSet<Orderitem> Orderitems { get; set; }
+        DbSet<OrderItem> Orderitems { get; set; }
         DbSet<Product> Products { get; set; }
     }
 }

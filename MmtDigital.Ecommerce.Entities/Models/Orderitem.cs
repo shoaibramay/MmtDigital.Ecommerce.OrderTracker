@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
+﻿#nullable disable
 
 namespace MmtDigital.Ecommerce.Entities
 {
-    public partial class Orderitem
+    public partial class OrderItem
     {
-        public int Orderitemid { get; set; }
-        public int? Orderid { get; set; }
-        public int? Productid { get; set; }
+        public int OrderItemId { get; set; }
+        public int? OrderId { get; set; }
+        public int? ProductId { get; set; }
         public int? Quantity { get; set; }
         public decimal? Price { get; set; }
         public bool? Returnable { get; set; }

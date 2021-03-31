@@ -9,17 +9,17 @@ namespace MmtDigital.Ecommerce.Entities
     {
         public Order()
         {
-            Orderitems = new HashSet<Orderitem>();
+            OrderItems = new HashSet<OrderItem>();
         }
 
-        public int Orderid { get; set; }
-        public string Customerid { get; set; }
-        public DateTime? Orderdate { get; set; }
-        public DateTime? Deliveryexpected { get; set; }
-        public bool? Containsgift { get; set; }
-        public string Shippingmode { get; set; }
-        public string Ordersource { get; set; }
+        public int OrderId { get; set; }
+        public string CustomerId { get; set; }
+        public DateTime? OrderDate { get; set; }
+        public DateTime? DeliveryExpected { get; set; }
+        public bool? ContainsGift { get; set; }
+        public string ShippingMode { get; set; }
+        public string OrderSource { get; set; }
 
-        public virtual ICollection<Orderitem> Orderitems { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

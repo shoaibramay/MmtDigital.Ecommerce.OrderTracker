@@ -1,9 +1,7 @@
-﻿using MmtDigital.Ecommerce.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using MmtDigital.Ecommerce.Data;
 using MmtDigital.Ecommerce.Entities;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MmtDigital.Ecommerce.Services
 {
@@ -17,7 +15,11 @@ namespace MmtDigital.Ecommerce.Services
         }
         public Order GetLatestOrderByCustomerId(string customerId)
         {
-            var result =  _applicationContext.Orders.Where(x => x.Customerid == customerId).OrderByDescending(y => y.Orderdate).FirstOrDefault();
+            var result = _applicationContext.Orders
+                .Where(a => a.CustomerId == customerId)
+                .Include(b => b.OrderItems)
+                .ThenInclude(c => c.Product)
+                .OrderByDescending(x => x.OrderDate).FirstOrDefault();
             return result;
         }
     }
