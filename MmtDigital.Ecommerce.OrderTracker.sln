@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MmtDigital.Ecommerce.OrderTrackerApi", "MmtDigital.Ecommerce.OrderTracker\MmtDigital.Ecommerce.OrderTrackerApi.csproj", "{7CAB6908-DE4A-4F8F-A4D2-CFD23436DC84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MmtDigital.Ecommerce.Entities", "MmtDigital.Ecommerce.Entities\MmtDigital.Ecommerce.Entities.csproj", "{C646F4AE-80A8-457B-B799-CB6AFA5F807D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MmtDigital.Ecommerce.Services", "MmtDigital.Ecommerce.Services\MmtDigital.Ecommerce.Services.csproj", "{5096CC05-8A47-4A90-8B25-A82FCE94DD2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CAB6908-DE4A-4F8F-A4D2-CFD23436DC84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CAB6908-DE4A-4F8F-A4D2-CFD23436DC84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CAB6908-DE4A-4F8F-A4D2-CFD23436DC84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CAB6908-DE4A-4F8F-A4D2-CFD23436DC84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C646F4AE-80A8-457B-B799-CB6AFA5F807D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C646F4AE-80A8-457B-B799-CB6AFA5F807D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C646F4AE-80A8-457B-B799-CB6AFA5F807D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C646F4AE-80A8-457B-B799-CB6AFA5F807D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5096CC05-8A47-4A90-8B25-A82FCE94DD2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5096CC05-8A47-4A90-8B25-A82FCE94DD2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5096CC05-8A47-4A90-8B25-A82FCE94DD2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5096CC05-8A47-4A90-8B25-A82FCE94DD2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED6F8529-8D19-4055-B1D9-2EF9393F7649}
+	EndGlobalSection
+EndGlobal
