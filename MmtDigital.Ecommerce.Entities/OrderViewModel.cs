@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MmtDigital.Ecommerce.Entities
 {
-    public class Order
+    public class OrderViewModel
     {
         [JsonPropertyName("orderNumber")]
         public int OrderNumber { get; set; }
@@ -18,13 +18,13 @@ namespace MmtDigital.Ecommerce.Entities
         public string DeliveryAddress { get; set; }
 
         [JsonPropertyName("orderItems")]
-        public List<OrderItem> OrderItems { get; set; }
+        public List<OrderItemsViewModel> OrderItems { get; set; }
 
         [JsonPropertyName("deliveryExpected")]
         public string DeliveryExpected { get; set; }
     }
 
-    public class OrderItem
+    public class OrderItemsViewModel
     {
         [JsonPropertyName("product")]
         public string Product { get; set; }
@@ -42,6 +42,6 @@ namespace MmtDigital.Ecommerce.Entities
         public Customer Customer { get; set; }
 
         [JsonPropertyName("order")]
-        public Order Order { get; set; }
+        public OrderViewModel Order { get; set; }
     }
 }

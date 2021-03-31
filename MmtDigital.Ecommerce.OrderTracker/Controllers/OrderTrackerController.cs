@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MmtDigital.Ecommerce.Data;
+using AutoMapper;
 
 namespace MmtDigital.Ecommerce.OrderTracker.Controllers
 {
@@ -14,10 +16,14 @@ namespace MmtDigital.Ecommerce.OrderTracker.Controllers
     public class OrderTrackerController : ControllerBase
     {
         private readonly ICustomerInformationService _customerInformationService;
+        private readonly IOrderService _orderService;
+        private readonly IMapper _mapper;
 
-        public OrderTrackerController(ICustomerInformationService customerInformationService)
+        public OrderTrackerController(ICustomerInformationService customerInformationService, IOrderService orderService, IMapper mapper)
         {
             _customerInformationService = customerInformationService;
+            _orderService = orderService;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -51,8 +57,8 @@ namespace MmtDigital.Ecommerce.OrderTracker.Controllers
                 tracker.Customer = customer;
 
                 //try to get order if any
-
-
+                Order latestOrder = _orderService.GetLatestOrderByCustomerId(customer.CustomerId);
+                _mapper.Map(latestOrder, tracker.Order);
 
                 return Ok(tracker);
             }

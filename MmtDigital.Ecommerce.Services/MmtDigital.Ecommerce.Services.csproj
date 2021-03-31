@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MmtDigital.Ecommerce.Data\MmtDigital.Ecommerce.Data.csproj" />
     <ProjectReference Include="..\MmtDigital.Ecommerce.Entities\MmtDigital.Ecommerce.Entities.csproj" />
   </ItemGroup>
 
