@@ -25,20 +25,6 @@ namespace MmtDigital.Ecommerce.OrderTracker.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-
-            Customer customer = await _customerInformationService.GetCustomerInformationAsync("cat.owner@mmtdigital.co.uk");
-
-            if (customer == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(customer);
-        }
-
         [HttpPost]
         public async Task<IActionResult> Post(CustomerPostRequestModel model)
         {
