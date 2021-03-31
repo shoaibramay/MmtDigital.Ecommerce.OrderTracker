@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace MmtDigital.Ecommerce.Entities
@@ -8,6 +9,7 @@ namespace MmtDigital.Ecommerce.Entities
         [JsonPropertyName("orderNumber")]
         public int OrderNumber { get; set; }
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [JsonPropertyName("orderDate")]
         public string OrderDate { get; set; }
 
@@ -17,6 +19,7 @@ namespace MmtDigital.Ecommerce.Entities
         [JsonPropertyName("orderItems")]
         public List<OrderItemViewModel> OrderItems { get; set; }
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [JsonPropertyName("deliveryExpected")]
         public string DeliveryExpected { get; set; }
     }
@@ -36,7 +39,7 @@ namespace MmtDigital.Ecommerce.Entities
     public class OrderTrackerViewModel
     {
         [JsonPropertyName("customer")]
-        public Customer Customer { get; set; }
+        public CustomerViewModel Customer { get; set; }
 
         [JsonPropertyName("order")]
         public OrderViewModel Order { get; set; }

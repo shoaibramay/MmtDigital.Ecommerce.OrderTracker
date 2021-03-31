@@ -54,11 +54,12 @@ namespace MmtDigital.Ecommerce.OrderTracker.Controllers
                 {
 
                     OrderTrackerViewModel tracker = new OrderTrackerViewModel();
-                    tracker.Customer = customer;
+                    tracker.Customer = _mapper.Map<CustomerViewModel>(customer);
 
                     //try to get order if any
                     Order latestOrder = _orderService.GetLatestOrderByCustomerId(customer.CustomerId);
                     tracker.Order = _mapper.Map<OrderViewModel>(latestOrder);
+                    tracker.Order.DeliveryAddress = $"{customer.HouseNumber} {customer.Street}, {customer.Town}, {customer.Postcode}";
 
                     if (latestOrder.ContainsGift == true)
                     {

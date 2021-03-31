@@ -41,4 +41,13 @@ namespace MmtDigital.Ecommerce.Entities
         [JsonPropertyName("preferredLanguage")]
         public string PreferredLanguage { get; set; }
     }
+
+    public class CustomerViewModel
+    {
+        [JsonPropertyName("firstName")]
+        public string FirstName { get; set; }
+
+        [JsonPropertyName("lastName")]
+        public string LastName { get; set; }
+    }
 }

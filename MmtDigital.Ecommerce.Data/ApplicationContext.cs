@@ -30,7 +30,7 @@ namespace MmtDigital.Ecommerce.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(Configuration["ApiCode"]
+                optionsBuilder.UseSqlServer(Configuration["ConnectionString"]
                     , options => options.EnableRetryOnFailure(6));
             }
         }
